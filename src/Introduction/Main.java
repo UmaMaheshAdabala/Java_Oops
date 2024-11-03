@@ -1,8 +1,14 @@
+package Introduction;
+
 public class Main {
 
     public static void main(String[] args) {
         Student student1=new Student();
         Student student2=new Student(12, "Ganesh", 98);
+        Student s;
+        for(int i=0;i<10000000;i++){
+            s=new Student();
+        }
         System.out.println(student1.name);
         System.out.println(student2.name);
     }
@@ -23,4 +29,8 @@ class Student{
         this.marks=marks;
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("Obj Garbage Collected");
+    }
 }
